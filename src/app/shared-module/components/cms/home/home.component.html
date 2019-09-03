@@ -1,0 +1,816 @@
+
+
+
+<div class="container-fluid cpblockbanner1">
+    <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+      <!-- Overlay -->
+      <div class="overlay"></div> 
+      
+  
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="item slides active slide1">
+          <div class="slide-1 slidecommon">
+            <img src="../../assets/images/banner-logo.png" class="bannerlogo">
+            <img src="../../assets/images/slider1.png" class="slider1lrg">
+            <img src="../../assets/images/slider1mobile.png" class="slider1mobile">
+            <img src="../../assets/images/slider1img2.png" class="slider1img2">
+            <img src="../../assets/images/slider1img2mobile.png" class="slider1img2mobile">
+            <div class="hero">
+              <div class="hgroup">
+                <h4>If you are interested in being one of the first 30 girls to join the Alt Fatale brand and participate in our website launch fill this form out now.</h4>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+        
+      </div>
+    </div>
+    <div class="maincontainer">
+      <div class="mainnavblock1 mainnavblock1home">
+  
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Main menu</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+  
+              <ul class="nav navbar-nav">
+                <li><a href="#" class="" (click)="callcomingsoonfunc()">Home</a></li>
+                <li><a href="#" (click)="callcomingsoonfunc()">Our Models</a></li>
+                <li><a href="#" (click)="callcomingsoonfunc()">Image Gallery</a></li>
+                <li><a href="#" (click)="callcomingsoonfunc()"> Videos</a></li>
+                <li><a href="#" (click)="callcomingsoonfunc()"> Federation </a></li>
+  
+                <li><a href="#" (click)="callcomingsoonfunc()">Tattoo Shops</a></li>
+                <li><a href="#" (click)="callcomingsoonfunc()">About Us</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><button class="btn btn-outline-success" type="submit" (click)="callcomingsoonfunc()">Contact Us</button></li>
+              </ul>
+  
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+  
+      </div>
+      <div class="formdivhome formdivhomeright">
+        <h4>Our launch is going to be a strong marketing effort that will get you in front of fans the minute we go live!</h4>
+        <form role="form" novalidate [formGroup]="dataForm" (ngSubmit)="dosubmit(dataForm.value)">
+          <div class="form-group">
+            <input type="text" class="form-control" id="firstname" aria-describedby="fnHelp" placeholder="First Name :"  [formControl]="dataForm.controls['firstname']">
+            <span class="has-error" *ngIf ="dataForm.controls['firstname'].touched && !dataForm.controls['firstname'].valid">First Name is Required !</span>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="lastname" aria-describedby="lnHelp" placeholder="Last Name :" [formControl]="dataForm.controls['lastname']">
+            <span class="has-error" *ngIf ="dataForm.controls['lastname'].touched && !dataForm.controls['lastname'].valid">Last Name is Required !</span>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="age" aria-describedby="age" placeholder="age :" [formControl]="dataForm.controls['age']">
+            <span class="has-error" *ngIf ="dataForm.controls['age'].touched"> Age is Required !</span>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="phonenumber" aria-describedby="pnHelp" placeholder="Phone Number :" [formControl]="dataForm.controls['phone']">
+            <span class="has-error" *ngIf ="dataForm.controls['phone'].touched"> Phone Number is Required !</span>
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email :" [formControl]="dataForm.controls['email']">
+            <span class="has-error" *ngIf ="dataForm.controls['email'].touched && getemail('blank')==true">Email is Required !</span>
+            <span class="has-error" *ngIf ="dataForm.controls['email'].touched && getemail('invalid')==true">Email is not valid!</span>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="state" aria-describedby="stateHelp" placeholder="city :" [formControl]="dataForm.controls['city']">
+            <span class="has-error" *ngIf ="dataForm.controls['city'].touched && !dataForm.controls['city'].valid">City is Required !</span>
+          </div>
+  
+          <div class="form-group">
+            <select class="form-control" id="cityelect1" [formControl]="dataForm.controls['state']">
+              <option value="" selected>Select State</option>
+              <option *ngFor="let item of state" value="{{item.abbreviation}}">{{item.name}}</option>
+            </select>
+            <span class="has-error" *ngIf ="dataForm.controls['state'].touched && !dataForm.controls['state'].valid">State is Required !</span>
+          </div>
+  
+          <div class="form-group">
+            <textarea class="form-control" id="description" rows="3" placeholder="Description :" [formControl]="dataForm.controls['description']"></textarea>
+            <span class="has-error" *ngIf ="dataForm.controls['description'].touched && !dataForm.controls['description'].valid">Description is Required !</span>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="username" aria-describedby="usernmHelp" placeholder="User Name :" [formControl]="dataForm.controls['username']">
+            <span class="has-error" *ngIf ="dataForm.controls['username'].touched && !dataForm.controls['username'].valid">Username is Required !</span>
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" id="password" aria-describedby="passwordHelp" placeholder="password :" [formControl]="dataForm.controls['password']">
+            <span class="has-error" *ngIf ="dataForm.controls['password'].touched && !dataForm.controls['password'].valid">Password is Required !</span>
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" id="confirmpassword" aria-describedby="confirmedpasswordHelp" placeholder="confirm password :"  [formControl]="dataForm.controls['confpassword']">
+            <span class="has-error" *ngIf ="dataForm.controls['confpassword'].touched && !dataForm.controls['confpassword'].valid">Please fill in the required field.</span>
+            <div class="has-error" *ngIf ="dataForm.hasError('mismatchedPasswords') && dataForm.controls['confpassword'].valid "><strong>Passwords must match</strong></div>
+          </div>
+  
+  
+          <ul class="list-inline">
+            <li><input type="button" class="btn btn-primary btnform" value="Upload Image" (click)="callimagesegment()"></li>
+            <li><input type="button" class="btn btn-primary btnform" value="View Model Agreement" (click)="viewmodel()"/></li>
+            <li><input type="submit" class="btn btn-primary btnform" value="Submit Form"/></li>
+          </ul>
+          <!-- <span class="has-success">Success Message</span>-->
+  
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container-fluid alfatale_block3">
+    <div class="maincontainer">
+      <img src="../../assets/images/alfatale_img3_mobile.jpg" class="alfatale_img3_mobile">
+      <div class="alfatale_block3_text_wrapper">
+        <h2>
+          About Alt Fatale
+        </h2>
+        <p>
+          Alt Fatale is a one of a kind showcase in creativity, DIY attitude and raw sexuality that only alternative beauty and culture can offer. Not only does our site feature thousands of pictures from some of the worlds sexiest alternative models but also includes exclusive Alt Fatale video content, physical events for our models and our super sexy Alt Fatale clothing line.Becoming an Alt Fatale model doesn't just limit you to being part of one of the nets hottest alternative communities, it also gives you ability to manage your own modeling career.
+        </p>
+        <div class="video-container-wrapper">
+          <div class="video-container">
+            <!--<img src="../../assets/images/alfatale_img3_mobile.jpg">-->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/epiGwOrvYSs?autoplay=0&rel=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+          </div>
+          <<!--img src="../../assets/images/alfatale_block7_video_playicon.png" class="playicon">-->
+        </div>
+        <button type="button" class="btn btn-default btnviewmore">Officially Launching April 2020. Get Updated When We Are Live!</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container-fluid alfatale_block4">
+    <img src="../../assets/images/alfatale_img4_mobile.jpg" class="alfatale_img4_mobile">
+    <div class="alfatale_block4_text_wrapper" (click)="callcomingsoonfunc()">
+     <!-- <img src="../../assets/images/alfatale_img4_fbinfo.jpg">-->
+      <div id="fb-root"></div>
+      <div class="fb-page" data-href="https://www.facebook.com/altfatalemodels/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-width="800px"><blockquote cite="https://www.facebook.com/altfatalemodels/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/altfatalemodels/">Altfatale</a></blockquote></div>
+    </div>
+  </div>
+  
+  <div class="container-fluid alfatale_block5">
+    <div class="maincontainer">
+      <img src="../../assets/images/alfatale_img5_mobile.jpg" class="alfatale_img5_mobile">
+      <div class="alfatale_block5_text_wrapper">
+        <h2>
+          Model photo galleries
+        </h2>
+        <p>
+          Our models all add in their own photos that are both professionally shot as well as personally created. The following are the models that are the showcase models for the month! Please check out their work.  If you are interested in their art please consider contributing and purchasing access to their full image and video galleries!
+        </p>
+  
+      </div>
+    </div>
+  </div>
+  
+  <div class="container-fluid alfatale_block6">
+    <div class="alfatale_block6_text_wrapper">
+      <div class="row">
+        <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 singlephoto" (click)="callcomingsoonfunc()">
+          <div class="datediv">
+            <span>10</span> December
+          </div>
+          <img src="../../assets/images/photo_img1.jpg" class="photo_img1">
+          <div class="singlephotocontent">
+            <h2>JULIE ROBERTS ALTERNATIVE MODEL</h2>
+            <h4>Please take the time to check out my profile, pictures and video here on AltFatale.</h4>
+          </div>
+          <div class="singlephotooverlay">
+          </div>
+  
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 singlephoto" (click)="callcomingsoonfunc()">
+          <div class="datediv">
+            <span>25</span> December
+          </div>
+          <img src="../../assets/images/photo_img2.jpg" class="photo_img1">
+          <div class="singlephotocontent">
+            <h2>ALICE AIRIBON ALTERNATIVE MODEL</h2>
+            <h4>Please take the time to check out my profile, pictures and video here on AltFatale.</h4>
+          </div>
+          <div class="singlephotooverlay">
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 singlephoto" (click)="callcomingsoonfunc()">
+          <div class="datediv">
+            <span>08</span> December
+          </div>
+          <img src="../../assets/images/photo_img3.jpg" class="photo_img1">
+          <div class="singlephotocontent">
+            <h2>VIOLET SKY ALTERNATIVE MODEL</h2>
+            <h4>Please take the time to check out my profile, pictures and video here on AltFatale.</h4>
+          </div>
+          <div class="singlephotooverlay">
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 singlephoto" (click)="callcomingsoonfunc()">
+          <div class="datediv">
+            <span>16</span> December
+          </div>
+          <img src="../../assets/images/photo_img4.jpg" class="photo_img1">
+          <div class="singlephotocontent">
+            <h2>JENNIFER LANE ALTERNATIVE MODEL</h2>
+            <h4>Please take the time to check out my profile, pictures and video here on AltFatale.</h4>
+          </div>
+          <div class="singlephotooverlay">
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 singlephoto" (click)="callcomingsoonfunc()">
+          <div class="datediv">
+            <span>31</span> December
+          </div>
+          <img src="../../assets/images/photo_img5.jpg" class="photo_img1">
+          <div class="singlephotocontent">
+            <h2>SUSAN STERLING ALTERNATIVE MODEL</h2>
+            <h4>Please take the time to check out my profile, pictures and video here on AltFatale.</h4>
+          </div>
+          <div class="singlephotooverlay">
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 singlephoto" (click)="callcomingsoonfunc()">
+          <div class="datediv">
+            <span>24</span> December
+          </div>
+          <img src="../../assets/images/photo_img6.jpg" class="photo_img1">
+          <div class="singlephotocontent">
+            <h2>JULIE BRIGGS ALTERNATIVE MODEL</h2>
+            <h4>Please take the time to check out my profile, pictures and video here on AltFatale.</h4>
+          </div>
+          <div class="singlephotooverlay">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container-fluid alfatale_block6_bottom">
+    <!--alfatale_block6_bottom_image-->
+  </div>
+  
+  <div class="container-fluid alfatale_block7">
+    <div class="maincontainer">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 alfatale_block7_left">
+          <h2>our top videos</h2>
+          <p>The following videos were created and uploaded by our incredible brand models. They are fun and sexy, and really showcase their art. Please take the time to review the videos that we have added to our homepage. These are the videos of the month that we feel are worth reviewing!</p>
+          <div class="video-container-wrapper" (click)="callcomingsoonfunc()">
+            <div class="video-container">
+              <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/QH091zFHdQ0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>-->
+              <img src="../../assets/images/alfatale_block7_video_img1.jpg">
+            </div>
+            <img src="../../assets/images/alfatale_block7_video_playicon.png" class="playicon">
+          </div>
+          <h3>SUSAN STERLING ALTERNATIVE MODEL</h3>
+          <p>This is our top video choice of the month! Please watch this video and take the time to check out my profile, pictures and the rest of my videos here on AltFatale.</p>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 alfatale_block7_right">
+          <ul class="list-inline">
+            <li>
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 alfatale_block7_left_video">
+                  <div class="video-container" (click)="callcomingsoonfunc()">
+                    <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/QH091zFHdQ0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>-->
+                    <img src="../../assets/images/alfatale_block7_video_smlimg1.jpg">
+                    <img src="../../assets/images/alfatale_block7_video_playiconsml.png" class="playicon">
+                  </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 alfatale_block7_right_info">
+                  <h3>JULIE ROBERTS <span>ALTERNATIVE MODEL</span></h3>
+                  <p style="clear:both">Please watch this video and take the time to check out my profile, pictures and the rest of my videos here on AltFatale.</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 alfatale_block7_left_video">
+                  <div class="video-container" (click)="callcomingsoonfunc()">
+                    <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/QH091zFHdQ0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>-->
+                    <img src="../../assets/images/alfatale_block7_video_smlimg2.jpg">
+                    <img src="../../assets/images/alfatale_block7_video_playiconsml.png" class="playicon">
+                  </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 alfatale_block7_right_info">
+                  <h3>ALICE AIRIBON <span>ALTERNATIVE MODEL</span></h3>
+                  <p style="clear:both">Please watch this video and take the time to check out my profile, pictures and the rest of my videos here on AltFatale.</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 alfatale_block7_left_video">
+                  <div class="video-container" (click)="callcomingsoonfunc()">
+                   <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/QH091zFHdQ0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>-->
+                    <img src="../../assets/images/alfatale_block7_video_smlimg3.jpg">
+                    <img src="../../assets/images/alfatale_block7_video_playiconsml.png" class="playicon">
+                  </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 alfatale_block7_right_info">
+                  <h3>VIOLET SKY <span>ALTERNATIVE MODEL</span></h3>
+                  <p style="clear:both">Please watch this video and take the time to check out my profile, pictures and the rest of my videos here on AltFatale.</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 alfatale_block7_left_video">
+                  <div class="video-container" (click)="callcomingsoonfunc()">
+                    <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/QH091zFHdQ0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>-->
+                    <img src="../../assets/images/alfatale_block7_video_smlimg4.jpg">
+                    <img src="../../assets/images/alfatale_block7_video_playiconsml.png" class="playicon">
+                  </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 alfatale_block7_right_info">
+                  <h3>JENNIFER LANE <span>ALTERNATIVE MODEL</span></h3>
+                  <p style="clear:both">Please watch this video and take the time to check out my profile, pictures and the rest of my videos here on AltFatale.</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 alfatale_block7_left_video">
+                  <div class="video-container" (click)="callcomingsoonfunc()">
+                    <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/QH091zFHdQ0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>-->
+                    <img src="../../assets/images/alfatale_block7_video_smlimg5.jpg">
+                    <img src="../../assets/images/alfatale_block7_video_playiconsml.png" class="playicon">
+                  </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 alfatale_block7_right_info">
+                  <h3>SUSAN STERLING <span>ALTERNATIVE MODEL</span></h3>
+                  <p style="clear:both">Please watch this video and take the time to check out my profile, pictures and the rest of my videos here on AltFatale.</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 alfatale_block7_left_video">
+                  <div class="video-container" (click)="callcomingsoonfunc()">
+                    <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/QH091zFHdQ0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>-->
+                    <img src="../../assets/images/alfatale_block7_video_smlimg6.jpg">
+                    <img src="../../assets/images/alfatale_block7_video_playiconsml.png" class="playicon">
+                  </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 alfatale_block7_right_info">
+                  <h3>JULIE BRIGGS <span>ALTERNATIVE MODEL</span></h3>
+                  <p style="clear:both">Please watch this video and take the time to check out my profile, pictures and the rest of my videos here on AltFatale.</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 alfatale_block7_left_video">
+                  <div class="video-container" (click)="callcomingsoonfunc()">
+                    <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/QH091zFHdQ0" frameborder="0" gesture="media"
+                     allow="encrypted-media" allowfullscreen></iframe>-->
+                    <img src="../../assets/images/alfatale_block7_video_smlimg7.jpg">
+                    <img src="../../assets/images/alfatale_block7_video_playiconsml.png" class="playicon">
+                  </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 alfatale_block7_right_info">
+                  <h3>ROSE LOVELAND <span>ALTERNATIVE MODEL</span></h3>
+                  <p style="clear:both">Please watch this video and take the time to check out my profile, pictures and the rest of my videos here on AltFatale.</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 alfatale_block7_left_video">
+                  <div class="video-container" (click)="callcomingsoonfunc()">
+                    <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/QH091zFHdQ0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>-->
+                    <img src="../../assets/images/alfatale_block7_video_smlimg8.jpg">
+                    <img src="../../assets/images/alfatale_block7_video_playiconsml.png" class="playicon">
+                  </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 alfatale_block7_right_info">
+                  <h3>JAMIE ALLEN <span>ALTERNATIVE MODEL</span></h3>
+                  <p style="clear:both">Please watch this video and take the time to check out my profile, pictures and the rest of my videos here on AltFatale.</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container-fluid alfatale_block8">
+    <img src="../../assets/images/alfatale_img8.png" class="alfatale_img8_mobile">
+  
+    <div class="maincontainer">
+      <img src="../../assets/images/alfatale_img8_sml.jpg" class="alfatale_img8_mobile_sml">
+      <div class="alfatale_block8_text_wrapper">
+        <h2>
+          PLEASE CHECK OUT OUR FULL MODELING GALLERY
+        </h2>
+        <p>
+          The AltFatale models will impress you. Please go to our full model listing page and review all the incredible talent, art and model listings.  You will find galleries, video and have a chance to support the model directly getting access to private content more.
+        </p>
+        <!-- Slider -->
+        <div class="row row-eq-height">
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 thumbnaillrgwrapper">
+            <a class="thumbnaillrg" id="slider" (click)="callcomingsoonfunc()">
+              <img src="../../assets/images/alfatale_img8_big1.jpg">
+            </a>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gallerythumbs">
+            <!-- gallerythumbs -->
+            <ul class="hide-bullets list-inline">
+  
+              <li class="col-lg-3 col-md-3 col-sm-3 col-xs-3" (click)="callcomingsoonfunc()">
+                <a class="thumbnail">
+                  <img src="../../assets/images/alfatale_img8_big2.jpg">
+                </a>
+              </li>
+              <li class="col-lg-3 col-md-3 col-sm-3 col-xs-3" (click)="callcomingsoonfunc()">
+                <a class="thumbnail">
+                  <img src="../../assets/images/alfatale_img8_big3.jpg">
+                </a>
+              </li>
+              <li class="col-lg-3 col-md-3 col-sm-3 col-xs-3" (click)="callcomingsoonfunc()">
+                <a class="thumbnail">
+                  <img src="../../assets/images/alfatale_img8_big4.jpg">
+                </a>
+              </li>
+              <li class="col-lg-3 col-md-3 col-sm-3 col-xs-3" (click)="callcomingsoonfunc()">
+                <a class="thumbnail">
+                  <img src="../../assets/images/alfatale_img8_big5.jpg">
+                </a>
+              </li>
+              <li class="col-lg-3 col-md-3 col-sm-3 col-xs-3" (click)="callcomingsoonfunc()">
+                <a class="thumbnail">
+                  <img src="../../assets/images/alfatale_img8_big6.jpg">
+                </a>
+              </li>
+              <li class="col-lg-3 col-md-3 col-sm-3 col-xs-3" (click)="callcomingsoonfunc()">
+                <a class="thumbnail">
+                  <img src="../../assets/images/alfatale_img8_big7.jpg">
+                </a>
+              </li>
+              <li class="col-lg-3 col-md-3 col-sm-3 col-xs-3" (click)="callcomingsoonfunc()">
+                <a class="thumbnail">
+                  <img src="../../assets/images/alfatale_img8_big8.jpg">
+                </a>
+              </li>
+              <li class="col-lg-3 col-md-3 col-sm-3 col-xs-3" (click)="callcomingsoonfunc()">
+                <a class="thumbnail">
+                  <img src="../../assets/images/alfatale_img8_big9.jpg">
+                </a>
+              </li>
+              <li class="col-lg-3 col-md-3 col-sm-3 col-xs-3" (click)="callcomingsoonfunc()">
+                <a class="thumbnail">
+                  <img src="../../assets/images/alfatale_img8_big10.jpg">
+                </a>
+              </li>
+              <li class="col-lg-3 col-md-3 col-sm-3 col-xs-3" (click)="callcomingsoonfunc()">
+                <a class="thumbnail">
+                  <img src="../../assets/images/alfatale_img8_big11.jpg">
+                </a>
+              </li>
+              <li class="col-lg-3 col-md-3 col-sm-3 col-xs-3" (click)="callcomingsoonfunc()">
+                <a class="thumbnail">
+                  <img src="../../assets/images/alfatale_img8_big12.jpg">
+                </a>
+              </li>
+              <li class="col-lg-3 col-md-3 col-sm-3 col-xs-3" (click)="callcomingsoonfunc()">
+                <a class="thumbnail">
+                  <img src="../../assets/images/alfatale_img8_big13.jpg">
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!--/gallerythumbs-->
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="container-fluid footerblock">
+    <div class="maincontainer">
+      <div class="row">
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 pull-left footerblockleft">
+          <img src="../../assets/images/alfatale_img_footer_logo.png" class="alfatale_img_footer_logo">
+        </div>
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 pull-right footerblockright">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 subscribeblock">
+              <div class="row">
+                <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12 pull-left subscribeleft">
+                  <h2>Subscribe to Our weekly newsletter</h2>
+                </div>
+                <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12 pull-right subscriberight">
+                  <input type="text" class="form-control" id="newsletter" aria-describedby="fnHelp" placeholder="Enter Valid email address"><button class="btn btn-default btnsendnewsletter" (click)="callcomingsoonfunc()">Submit</button>
+                </div>
+              </div>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row socialwrapper">
+        <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 pull-left social-network-left">
+          <ul class="social-network">
+            <li><a class="btn btn-social-icon btn-facebook" href="https://www.facebook.com/altfatalemodels/"><span class="fa fa-facebook"></span></a></li>
+          </ul>
+        </div>
+        <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12 pull-left social-network-left">
+          <ul class="paytypelink">
+            <li><a href="#" (click)="callcomingsoonfunc()">Home</a></li>
+            <li><a href="#" (click)="callcomingsoonfunc()">Our Models</a></li>
+            <li><a href="#" (click)="callcomingsoonfunc()">Image Gallery</a></li>
+            <li><a href="#" (click)="callcomingsoonfunc()">Videos</a></li>
+            <li><a href="#" (click)="callcomingsoonfunc()"> Federation </a></li>
+            <li><a href="#" (click)="callcomingsoonfunc()">Tattoo Shops</a></li>
+            <li><a href="#" (click)="callcomingsoonfunc()">About Us</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 pull-right social-network-right">
+          <div  class="copyrighttxt">
+            <p>© Copyright © 2017, <a href="#">altfatale.com</a> | <a href="#">Privacy Policy</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  <div *ngIf="isModalShown" class="modal fade" (onHidden)="onHidden()" bsModal #staticModal="bs-modal" [config]="{ show: true}"
+       tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <img src="../../assets/images/alfatale_img_footer_logo.png" alt="logo" class="img-responsive center-block" >
+        </div>
+        <div class="modal-body">
+          <h3>In pre-launch until April 2020. If you are a model and want into our program, please fill out the information on our homepage!</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <!--
+  <div *ngIf="isModalShownforimage" class="modal fade" (onHidden)="onHidden()" bsModal #staticModal="bs-modal" [config]="{ show: true}"
+       tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title pull-left">Uploaded Image</h4>
+          <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div *ngIf="progress">
+            <div *ngIf="progress != 100">
+              Uploading: {{ progress }}%
+            </div>
+          </div>
+          <div *ngIf="progress == 100">
+            Image Uploaded..!
+          </div>
+          <div *ngIf="uploadedfilesrc" class="browsefileblockimg">
+            <img src="{{uploadedfilesrc}}" style="width: 100%; height: auto">
+            <input type="button" value="Delete" class="form-control" (click)="deleteimage(imagename,0)">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isModalShownforimage1" class="modal fade" (onHidden)="onHidden()" bsModal #staticModal="bs-modal" [config]="{ show: true}"
+       tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title pull-left">Uploaded Image</h4>
+          <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div *ngIf="progress1">
+            <div *ngIf="progress1 != 100">
+              Uploading: {{ progress1 }}%
+            </div>
+          </div>
+          <div *ngIf="progress == 100">
+            Image Uploaded..!
+          </div>
+          <div *ngIf="uploadedfilesrc1" class="browsefileblockimg">
+            <img src="{{uploadedfilesrc1}}" >
+            <input type="button" value="Delete" class="form-control" (click)="deleteimage(imagename1,1)">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isModalShownforimage2" class="modal fade" (onHidden)="onHidden()" bsModal #staticModal="bs-modal" [config]="{ show: true}"
+       tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title pull-left">Uploaded Image</h4>
+          <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div *ngIf="progress2">
+            <div *ngIf="progress2 != 100">
+              Uploading: {{ progress2 }}%
+            </div>
+          </div>
+          <div *ngIf="progress2 == 100">
+            Image Uploaded..!
+          </div>
+          <div *ngIf="uploadedfilesrc2" class="browsefileblockimg">
+            <img src="{{uploadedfilesrc2}}" style="width: 100%; height: auto">
+            <input type="button" value="Delete" class="form-control" (click)="deleteimage(imagename2,2)">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
+  
+  
+  
+  
+  
+  <div *ngIf="issegmentmodalshown" class="modal fade uploadimagemodal" (onHidden)="onHidden()" bsModal #staticModal="bs-modal" [config]="{ show: true}"
+       tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div>
+            <img src="../../assets/images/alfatale_img_footer_logo.png" alt="logo" class="img-responsive center-block" >
+          </div>
+        </div>
+        <div class="modal-body">          
+          <div  class="img-responsive center-block clearfix">
+            <h4 class="modal-title center-block" style="padding-bottom: 5px; text-align: center">Upload Images</h4>
+            <label class="upload-button filechoosebtnbg center-block">
+              <input class="img-responsive center-block clearfix" type="file" ngFileSelect [options]="options" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" multiple>
+            </label>
+          </div>
+          <input type="file" multiple  class="form-control-file filechoosebtn hide" id="exampleFormControlFile1" accept="image/*" ngFileSelect [options]="basicOptions" (onUpload)="handleUpload($event,0)">
+          <div *ngIf="progress">
+            <div *ngIf="progress != 100">
+              Uploading: {{ progress }}%
+            </div>
+          </div>
+          <div *ngIf="progress == 100">
+            Image Uploaded..!
+          </div>
+          <div class="browsefileblockimg">
+            <div class="row">
+              <div class="browsefileblockimgmultiplerow">
+                <div class="browsefileblockimgmultiplerowsingle" *ngIf="files.length>0">
+                  <div class="browsefileblockimgmultiplerowimgagebig">
+                    <img  class="img-responsive center-block" style="width: 100%; height: auto" src="http://altfatale.com/assets/images/uploads/{{files[0].response}}" >    <!--SERVER-->
+              
+                  </div>
+                  <input type="button"  *ngIf="files.length>0" value="Delete" class="form-control btn btn-primary btnform  center-block" (click)="deleteimage1(0)" style="margin: 0 auto; width: 30%; float: none">
+                </div>
+                <div class="browsefileblockimgmultiplerowsingle" *ngFor="let item of files; let i = index">
+                  <div class="browsefileblockimgmultiplerowsinglesmall">
+                    <img  class="img-responsive center-block" style="padding: 5px" *ngIf="i>0" src="http://altfatale.com/assets/images/uploads/{{item.response}}">  <!--SERVER-->
+                  </div>
+  
+                  <input type="button" *ngIf="i>0" value="Delete" class="form-control btn btn-primary btnform" (click)="deleteimage1(i)">
+                </div>
+  
+                <div class="clearfix"></div>
+  
+              </div>
+  
+          </div>
+            <input type="button"  *ngIf="files.length>0" value="Save Images" class="btn btn-primary btnform center-block btnsavepopimage" (click)="saveimages()">
+          </div>
+  
+         
+        </div>
+      </div>
+    </div>
+  </div>
+  
+   
+  <div *ngIf="viewModal" class="modal fade terms-agreement" (onHidden)="onHidden()" bsModal #staticModal="bs-modal" [config]="{ show: true}"
+       tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <img src="../../assets/images/alfatale_img_footer_logo.png" alt="logo" class="img-responsive center-block" >
+        </div>
+        <div class="modal-body terms-agreement-inner">
+          <h3>Elite Alternative Modeling and International Brand Contractor Agreement for Applying Models</h3>
+          <p>Alt Fatale is an Elite Soft-core Modeling brand composed of a select number of women that represent the brand exclusive.  This is an agreement between Alt Fatale the company, web portal and brand and Model who is engaging Alt Fatale creating content and media.  This is a contractor and commission based agreement.  All financial exchanges are based on the use and distribution of said media as dictated in the agreement below.</p>
+          <h2>Terms of the Agreement:</h2>
+          <div class="text">
+  <p>Alt Fatale (Company) and all brands, companies and media distribution outlets there by related are engaged in the business of producing or photographing sexually explicit content, and Model wishes to perform modeling services for Company in exchange for the consideration agreed upon herein.</p>
+            <p>Model agrees to pose for photographs and have the option to appear in film under the direction of Company or any agent of Company, including without limitation any photographer, director or producer acting on behalf of Company.  Model acknowledges that the photographs and movies will involve nudity.  Models can also work with other photographers and media developers as long as the content they submit to our brand are not used other places without having the Alt Fatale logos.</p>
+            <p>The Alt Fatale themes are considered soft-core and sexy. Our brand is national and international. The brand itself appears in radio commercials, along-side other brands in entertainment of a variety of genres and on the Alt Fatale website.  Alt Fatale also has a social media presence in facebook, You-Tube and twitter.</p>
+            <dd>What is expected of the Alt Fatale Models.</dd>
+            <p>Each of the Alt Fatale models are required to do several photo shoots and are encouraged to do video shoots, we strictly require our material to remain soft-core, any hardcore submissions will be rejected. in order to represent the brand. This includes having flexible availability, and being willing to put in longer hours if necessary when we are in the area you live.  As well as taking the time to create the media on your own for submission.  When we are the media company shooting content you will be preapproved, when you submit content we will let you know if you are approved within 30 days. We do insist that our models be height/weight proportionate.</p>
+            <dd>The photography shoots we require that we do are as follows.</dd>
+            <ul>We require our shoots to have 4 sections
+            <li>20 photos fully clothed, tight, sexy, alternative style clothing heavily recommended</li>
+              <li>20 photos semi-nude (Bottoms & bra, full underwear)</li>
+              <li>20 photos topless (No bra, bottoms on)</li>
+              <li>20 photos nude (bare bums, no spread shots)</li>
+            </ul>
+            <ul>We would like to avoid the following in our photo shoots:
+              <li>Childish themes (teddy bears, etc) </li>
+              <li>Bloody/gory special effects, though we may do contests for these in the Halloween season.</li>
+              <li>Poor photo quality, though we do not expect all shoots to necessarily be shot by a professional
+                photographer we do insist the photos you submit are of professional quality, have clean backdrops
+                (no messy bedrooms or bathrooms), and good lighting</li>
+            </ul>
+            <dd>The Video Shoots will go as follows</dd>
+            <p>All of the Alt Fatales brand models will get ample attention and be able to make money with the brand.  We are able to bring more attention to you the more you are willing to do as AF model. If you do a nude video for example, we can market that media in more places adding more to your marketing channel. It's simple. The more you do the more money you have the potential to make.</p>
+            <p>We expect your video shoots to be a live version of your photo shoot, starting clothed and ending nude, we do not accept any hardcore video material. </p>
+            <p>Video shoots are heavily recommended to add to your media gallery and the brand itself</p>
+            <dd>Making Money with Alt Fatale</dd>
+            <p>All of the Alt Fatales brand models will get ample attention and be able to make money with the brand.  We are able to bring more attention to you the more you are willing to do as AF model. If you do a nude video for example, we can market that media in more places adding more to your marketing channel. It's simple. The more you do the more money you have the potential to make.</p>
+            <p>We will be developing this brand and over time building it as big as we can.  Like Victoria Secret, Burning Angel, Suicide Girls or even Play Boy.</p>
+            <p>Making money with us is something that other brands similar to us have not offered at this level in the past.  We don’t pay upfront a few hundred like you can see in modeling gigs.  We share your marketing stream with you.  If the media we use associated with the efforts you make bring in the business then you will get credit for that and get paid on all of it. The more photography and video you do the more we able to offer to the marketing channels we are setting up.</p>
+            <dd>What we will be doing for you:</dd>
+            <p>1. Putting you on our subscription based website AltFatale.com where all of your photo galleries and video galleries will be available. This website is the central landing destination on the web for all our marketing efforts. </p>
+            <p>2. Giving you 20% of all the gross profit from the traffic where people sign up through your external media including facebook, twitter and YouTube and any other web where your content is listed.  We will be building these social media websites as well as helping with their maintenance.  This is media that we push using your pictures and video to draw in an audience.  So the more media you give us the more we will use and the more money you will make.</p>
+            <p>3. Giving you 40% of all the people you push to sign up yourself on your unique link to the web portal. We give you banners and links that you can use on your facebook, twitter, pinterest and websites to push people to sign up.  When they land on Alt Fatale’s website it will show your media and when they pay it will go straight to your profile. </p>
+            <p>4. Giving you 40% of any of the products in the shopping cart that are yours including digital down-loadable picture galleries, posters and eventually clothing.  You can submit things you want to sell, like that hot pair of panties you wore in one of your picture galleries and we will take the payment and send you 40%.</p>
+            <p>5. As a top model for AF when we are in your area you will be part of our AF special promotions.  These include getting taken out on our party bus rentals to various locations, exclusive free photo and photo shoots with us, (must provide your own transport and lodging.) music video and celebrity modeling opportunities and more.</p>
+            <dd>Proprietary In-house developed shoots</dd>
+            <p>Alt Fatale organizes and contracts models for proprietary shoots in Video and Photography for the brand Alt Fatale. Model is giving up all ownership rights to Alt Fatale for the photography and all other video and other media that is shot during these sessions.  The photos and all other created media will be water marked Alt Fatale and considered as owned by the brand in every way.  Though we will own the media submitted to this we will not own you as a model, you're still welcome to model for other companies, including your own private site, as long as the media submitted to us remains Alt Fatale exclusive.</p>
+            <p>The photography / media belong to Alt Fatale the very moment it is created. All photography and media created by the photographer / media developer will need to be submitted within 72 hours of development in raw format to the designated member of the Alt Fatale staff to be considered.  </p>
+            <dd>Submitted models and materials</dd>
+            <p>If the photographer and or independent model is planning to submit models for the Alt Fatale brand that are previously shot or personally developed then we follow the following: </p>
+            <p>Each of the models involved will have to apply directly to become an Alt Fatale model and sign all required agreements to being part of the Alt Fatale brand.  If the application is approved then said photographer can submit photos of said model as an Alt Fatale model and all of the media that is submitted and used will be on a 5 year exclusive lease to the Alt Fatale brand.  That means that the photography and media must be released of any water marks or logos outside of the Alt Fatale brand and labeled and water marked as Alt Fatale.  The photography and media cannot be used in any other capacity outside of the Alt Fatale brand, including the photographer's. at this point for a 5 year period.  After the 5 year period is up the photography and media will remain in the Alt Fatale network and branded as Alt Fatale but the Photographer / Media developer will regain rights to duplication and distribution.
+              Though we will have ownership of the media accepted, the models still can accredit their photographers on their page, even  post links to said photographers.</p>
+            <dd>Distribution and commission based earnings </dd>
+            <p>Photographer / Media developer and model agrees to allow Alt Fatale to use their photography and media in any form of digital distribution they see fit.  This is all to the discretion and publishing decisions made by the Alt Fatale management.  All of the published media will have in the back links associated an official affiliate code that associates the sign up and all purchases that are made on AltFatale.com with the particular model that submitted the work.  It is suggested that photographers for Alt Fatale be paid 10% of the model’s earnings but we do not regulate this and it is 100% up to the discretion of the Alt Fatale model and the relationship to their Photographer.</p>
+            <p>Models will be given access to a management portal where they can see the amount of impressions, click troughs and conversions their media is getting and exactly how much they are earning.  Payments are made after the accumulation of at least $100 total owned commissions in the given month period and paid Monthly Net 7.  If there is not $100 then the total rolls to the next month period.  </p>
+            <p>There are no guarantees that any amount of media created for the Alt Fatale model will be used to any capacity.  We will take consideration of all work submitted and will gauge them equally with everything else that we are developing.  We have a large publishing team and add our ability to publish media on a consistent basis.  The more media we are able to get the better chances of getting the work published on the World Wide Web.  The more the variety we are able to get the more places that we can post content. </p>
+          </div>
+          <h2>Entire Agreement</h2>
+          <div class="text">
+            <p>This agreement contains the entire understanding of the parties and supersedes any and all previous verbal and written agreement or understandings. There are no other agreements, representations or warranties not set forth in this agreement. This agreement will bind, and inure to the benefit of, the parties and their respective successor and assigns. Any modification, amendment, or waiver of any provision of this agreement may be made only in writing and signed by both parties. The failure by any party to exercise any rights granted herein upon the occurrence of any event set forth in this agreement shall not constitute a waiver of any such rights upon the occurrence of any such event. In the event any provision of this agreement is held to be in violation of any law, statue, regulation, ordinance, or court order, this agreement shall be deemed modified accordingly and to the extent necessary to comply therewith and shall otherwise continue full force and effect. This agreement shall be governed by, and construed in accordance with, the laws of the State of Idaho, and any action, claim or proceeding under this agreement shall be commenced exclusively in the federal or state courts located in the State of Idaho. This agreement may be executed in several counterparts, each of which shall constitute one and the same instrument. Section or paragraph headings in the agreement are for convenience of reference only.</p>
+          </div>
+          <h2>Arbitration Provision</h2>
+          <div class="text">
+            <p>If any dispute arises among the parties, they agree to try first in good faith to settle the dispute by mediation administered by the American Arbitration Association (AAA) under its Commercial Mediation Rules.  All unresolved disputes shall then be decided by final and binding arbitration in accordance with the Commercial Arbitration Rules of the AAA.  Fees charged by any mediators, arbitrators, or the AAA shall be shared equally by all parties.  In agreeing to arbitration, we both acknowledge that in the event of a dispute over fees, each of us is giving up the right to have the dispute decided in a court of law before a judge or jury and instead we are accepting the use of arbitration for resolution.</p>
+          </div>
+          <h2>Signature</h2>
+          <div class="text">
+            <p>Upon clicking agree agreement and policy statement will be officially enacted and stand as the legal and binding document for the exchange of photography and media services for the above said compensation and distribution model. </p>
+          </div>
+          <div class="clr"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  <div *ngIf="successModal" class="modal fade" (onHidden)="onHidden()" bsModal #staticModal="bs-modal" [config]="{ show: true}"
+       tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <img src="../../assets/images/alfatale_img_footer_logo.png" alt="logo" class="img-responsive center-block" >
+        </div>
+        <div class="modal-body">
+          <h3 style="text-align: center">You have successfully submitted the form!</h3>
+        </div>
+      </div>
+    </div>
+  </div>
