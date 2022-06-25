@@ -41,7 +41,7 @@
     "ngx-bootstrap": "^2.0.5",
     "ngx-bootstrap-modal": "^2.0.1",
     "ngx-uploader": "^7.1.0",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.7",
     "rxjs": "^6.5.2",
     "ts-loader": "^6.0.4",
     "tslib": "^1.9.0",
